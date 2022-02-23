@@ -67,11 +67,11 @@ class ComicsController extends Controller
      * @param  \App\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function show(Comics $comics)
+    public function show(Comics $comic)
     {
         $data = [
-            'comic' => $comics,
-            'title' => $comics->title
+            'comic' => $comic,
+            'title' => $comic->title
         ];
         return view('comics.show', $data);
     }
