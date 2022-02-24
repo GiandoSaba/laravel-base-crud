@@ -22,5 +22,10 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col">
+                <a class="btn btn-primary" href="{{ route('comics.index') }}">Back</a>
+            </div>
+        </div>
     </div>
 @endsection

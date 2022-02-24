@@ -14,7 +14,7 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comics::paginate(10);
+        $comics = Comics::paginate(12);
         $data = [
             'comics' => $comics,
             'title' => 'Comics Home',
@@ -82,9 +82,9 @@ class ComicsController extends Controller
      * @param  \App\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comics $comics)
+    public function edit(Comics $comic)
     {
-        //
+        return view('comics.edit', ['comic' => $comic]);
     }
 
     /**
@@ -94,9 +94,15 @@ class ComicsController extends Controller
      * @param  \App\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comics $comics)
+    public function update(Request $request, Comics $comic)
     {
-        //
+        $data = $request->all();
+        $updated = $comic->update($data);
+        if (!$updated) {
+            dd('update non riuscito');
+        }
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
@@ -105,7 +111,7 @@ class ComicsController extends Controller
      * @param  \App\Comics  $comics
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comics $comic)
     {
         //
     }

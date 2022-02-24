@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-    [{{ $title }}
+    {{ $title }}
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
                             <th>Series</th>
                             <th>Price</th>
                             <th>Type</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +34,8 @@
                                 <td>{{ $comic->price }} €</td>
                                 <td>{{ $comic->type }}</td>
                                 <td><a class="btn btn-primary" href="{{ route('comics.show', $comic) }}">View</a>
+                                </td>
+                                <td><a class="btn btn-warning" href="{{ route('comics.edit', $comic) }}">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
