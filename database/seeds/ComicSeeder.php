@@ -1,10 +1,10 @@
 <?php
 
-use App\Comics;
+use App\Comic;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
-class ComicsSeeder extends Seeder
+class ComicSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class ComicsSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 0; $i < 100; $i++) {
-            $comic = new Comics();
+            $comic = new Comic();
             $comic->title = $faker->words(2, true);
             $comic->description = $faker->text(50);
             $comic->thumb = $faker->imageUrl(360, 360, 'animals', true, 'cats');

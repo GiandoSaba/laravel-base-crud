@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Comics;
+use App\Comic;
 use Faker\Generator as Faker;
 
-$factory->define(Comics::class, function (Faker $faker) {
+$factory->define(Comic::class, function (Faker $faker) {
     return [
         //
     ];

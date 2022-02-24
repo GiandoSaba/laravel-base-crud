@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Comics;
+use App\Comic;
 use Illuminate\Http\Request;
 
-class ComicsController extends Controller
+class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comics::paginate(12);
+        $comics = Comic::paginate(12);
         $data = [
             'comics' => $comics,
             'title' => 'Comics Home',
@@ -41,7 +41,7 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         $dataArray = $request->all();
-        $comic = new Comics();
+        $comic = new Comic();
         $comic->title = $dataArray['title'];
         $comic->description = $dataArray['description'];
         $comic->thumb = $dataArray['thumb'];
@@ -64,10 +64,10 @@ class ComicsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comics
      * @return \Illuminate\Http\Response
      */
-    public function show(Comics $comic)
+    public function show(Comic $comic)
     {
         $data = [
             'comic' => $comic,
@@ -79,10 +79,10 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comics
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comics $comic)
+    public function edit(Comic $comic)
     {
         return view('comics.edit', ['comic' => $comic]);
     }
@@ -91,10 +91,10 @@ class ComicsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comics $comic)
+    public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
         $updated = $comic->update($data);
@@ -108,10 +108,10 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comics $comic)
+    public function destroy(Comic $comic)
     {
         //
     }
